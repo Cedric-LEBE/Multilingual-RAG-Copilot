@@ -1,22 +1,38 @@
-# Multilingual-Rag-copilot 🌍📚
+# Multilingual-RAG-Copilot 🌍📚
 
-A **multilingual RAG (Retrieval-Augmented Generation) app** that lets users upload (or mount) documents and ask questions **grounded in those documents**, with **citations**.
+Bienvenue dans **Multilingual-RAG-Copilot**, une application de génération augmentée par récupération (**RAG - Retrieval-Augmented Generation**) multilingue conçue pour vous permettre de télécharger (ou de monter) des documents et de poser des questions basées sur les informations contenues dans ces documents, avec des **citations** précises.
 
-This version is designed to be **deployable with a public URL** (e.g., Streamlit Community Cloud) by using an **internet-accessible LLM backend** (Groq API). It also supports an optional local backend (Ollama).
+## Fonctionnalités 
+- **Téléchargement** de plusieurs types de documents : **PDF, TXT, MD, DOCX**
+- Construction locale d'index vectoriels avec **ChromaDB**
+- Questions possibles dans **toutes les langues**
+- Réponses fournies dans la **même langue que la question posée**
+- Affichage des **sources** (document + fragment spécifique extrait)
 
-## What it does
-- Upload multiple documents (**PDF, TXT, MD, DOCX**)
-- Build a local vector index (ChromaDB)
-- Ask questions in **any language**
-- Answer in the **same language as the question**
-- Show **sources** (document + chunk)
+## Technologies utilisées
+- **Python** pour le traitement d'application principale
+- **Streamlit** pour l'interface utilisateur (déploiement simple avec URL publique)
+- **Groq API** en tant que backend pour les modèles de langage (LLM – Large Language Models)
+- **ChromaDB** pour l'indexation vectorielle 
+- **bcrypt** pour le stockage sécurisé de mot de passe 
+- **MLflow** pour le suivi des performances et des métriques d'utilisation
+- Optionnel : Airflow pour reindexer de manière planifiée, via des DAGs gérés localement.
 
-## Deployment (public URL)
-Recommended: **Streamlit Community Cloud** + **Groq API key**.
-- Store your `GROQ_API_KEY` using Streamlit secrets management. citeturn0search2
-- Groq imposes rate limits depending on plan/tier. citeturn0search1
+## Informations de connexion (default)
+- **Username** : `admin`
+- **Password** : `admin-admin`
 
-## Quickstart (local)
+> Vous pouvez changer le mot de passe en générant un nouveau **hash bcrypt**. Consultez la partie _Secrets (Local)_ ci-dessous.
+
+## Déploiement
+
+### Déployement avec URL publique
+Le déploiement recommandé se fait avec **Streamlit Community Cloud** pour une accessibilité simple via une URL publique. 
+1. Configurez et sauvegardez votre `GROQ_API_KEY` en utilisant la gestion des secrets Streamlit.
+2. Déployez l'application sur Streamlit Cloud et inscrivez-vous à **Groq API** en fonction de votre volume requis.
+
+### Exécution rapide en local
+Pour une exécution locale simple, suivez les étapes suivantes :
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
@@ -25,45 +41,45 @@ pip install -e .
 streamlit run app.py
 ```
 
-### Secrets (local)
-Create `.streamlit/secrets.toml` from the template:
+#### Secrets (configuration locale)
+1. Créez un fichier suivant `.streamlit/secrets.toml` :
 ```toml
-GROQ_API_KEY = "..."
+GROQ_API_KEY = "votre_clef"
 AUTH_USERNAME = "admin"
-AUTH_PASSWORD_HASH = "$2b$12$..."
+AUTH_PASSWORD_HASH = "$2b$12$..."  # Généré via bcrypt
 ```
-
-Generate a bcrypt hash:
+2. Générer un hash bcrypt sécurisé pour un mot de passe : 
 ```bash
-python scripts/hash_password.py "your_password"
+python scripts/hash_password.py "votre_password"
 ```
 
-## Optional: Airflow (local, for scheduled re-indexing)
-A sample Airflow DAG is provided in `dags/reindex_docs.py` and a `docker-compose.airflow.yml` for local runs.
-Airflow is **not required** for the deployed demo URL.
+### Exemple via Airflow (optionnel)
+Pour **re-indexer périodiquement vos documents**, vous pouvez configurer **Airflow localement** :
+- Un exemple de DAG est disponible dans `dags/reindex_docs.py`
+- Lancer l'exécution avec `docker-compose.airflow.yml`
 
-## Optional: MLflow
-MLflow logging is included for:
-- indexing runs (chunks, doc count, embedding model)
-- chat usage metrics (latency, retrieved chunks)
+## Suivi des métriques (MLflow)
+L'intégration de MLflow est incluse pour :
+- Le suivi des processus d'indexation : nombre de documents et chunks, modèle d'embedding
+- Le suivi des performances de l'application : latence et chunks récupérés
 
-Enable by setting `MLFLOW_TRACKING_URI` (local) and `MLFLOW_EXPERIMENT` in secrets/env.
+Pour l'activer :
+- Configurez `MLFLOW_TRACKING_URI` (localement)
+- Définissez votre expérience via le secret/env `MLFLOW_EXPERIMENT`
 
-## Project structure
+## Structure du projet
 ```
 multilingual-rag-copilot/
 ├─ app.py
-├─ src/mrc/              # core modules
-├─ corpus/               # optional mounted docs for demo (gitignored or small samples)
-├─ storage/              # Chroma persistence (gitignored)
-├─ dags/                 # optional Airflow DAGs
-├─ scripts/              # helper scripts
+├─ src/mrc/              # modules principaux
+├─ corpus/               # documents montés (non suivis par le git)
+├─ storage/              # persistance Chroma (non suivie)
+├─ dags/                 # DAGs optionnels pour Airflow
+├─ scripts/              # scripts utilitaires
 └─ pyproject.toml
 ```
 
-## Notes & limitations
-- Images/video/audio are not supported in this version (text-only extraction).
-- For a completely offline demo, use the Ollama backend locally.
+## Limitations
+- Les images, vidéos et fichiers audio ne sont **pas pris en charge** dans cette version.
+- Pour une version totalement hors ligne, utilisez le backend **Ollama localement**.
 
-## License
-Educational use.
