@@ -1,4 +1,4 @@
-# multilingual-rag-copilot 🌍📚 (v2 — deployable)
+# Multilingual-Rag-copilot 🌍📚
 
 A **multilingual RAG (Retrieval-Augmented Generation) app** that lets users upload (or mount) documents and ask questions **grounded in those documents**, with **citations**.
 

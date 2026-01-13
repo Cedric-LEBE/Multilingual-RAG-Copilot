@@ -52,7 +52,14 @@ with st.sidebar:
         st.session_state.messages = []
         st.toast("Chat reset.")
 
-st.subheader("1) Upload documents")
+    st.markdown("")  # small spacing before logout
+
+    if st.button("🚪 Log out", use_container_width=True):
+        for k in ["authed", "auth_user", "auth_pass"]:
+            st.session_state.pop(k, None)
+        st.rerun()
+
+st.subheader("Upload documents")
 uploads = st.file_uploader(
     "Accepted: PDF, TXT, MD, DOCX",
     type=["pdf", "txt", "md", "docx"],
@@ -109,7 +116,7 @@ if btn_col2.button("📁 Index corpus folder", use_container_width=True):
             )
 
 st.divider()
-st.subheader("2) Ask questions")
+st.subheader("Ask questions")
 
 if not st.session_state.index_ready:
     st.warning("Build an index first (uploads or corpus folder).")
