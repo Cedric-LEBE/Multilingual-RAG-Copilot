@@ -7,3 +7,5 @@ corpus/*
 !.gitkeep
 .streamlit/secrets.toml
 mlruns/
+build/
+*.egg-info/
