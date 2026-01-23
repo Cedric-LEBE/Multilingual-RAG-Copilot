@@ -100,6 +100,7 @@ multilingual-rag-copilot/
 ├─ dags/                 # DAGs optionnels pour Airflow
 ├─ scripts/              # scripts utilitaires
 └─ pyproject.toml
+└─ requirements.txt      
 ```
 
 ## Limitations
