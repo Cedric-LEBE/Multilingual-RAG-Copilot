@@ -1,6 +1,6 @@
 # Multilingual-RAG-Copilot 🌍📚
 
-Bienvenue dans **Multilingual-RAG-Copilot**, une application Streamlit de génération augmentée par récupération (**RAG - Retrieval-Augmented Generation**) multilingue conçue pour vous permettre de télécharger (ou de monter) des documents et de poser des questions basées sur les informations contenues dans ces documents, avec des **citations** précises.
+Bienvenue dans **Multilingual-RAG-Copilot**, une application de génération augmentée par récupération (**RAG - Retrieval-Augmented Generation**) multilingue conçue pour vous permettre de télécharger (ou de monter) des documents et de poser des questions basées sur les informations contenues dans ces documents, avec des **citations** précises.
 
 ## Fonctionnalités 
 - **Téléchargement** de plusieurs types de documents : **PDF, TXT, MD, DOCX**
@@ -26,9 +26,7 @@ Bienvenue dans **Multilingual-RAG-Copilot**, une application Streamlit de géné
 
 ## Déploiement
 
-### Déployement avec URL publique
-
-L'application est déployée publiquement sur Streamlit Cloud :
+L'application est déployée publiquement sur Streamlit Cloud via l'URL ci-dessous :
 
 🔗 **https://multilingual-rag-copilot.streamlit.app/**
 
@@ -53,6 +51,8 @@ L’utilisateur pose une question dans n’importe quelle langue à partir des d
 La réponse est générée automatiquement dans la langue de l’utilisateur, avec les sources clairement citées.
 
 ![Answer](assets/screenshots/_answer.png)
+
+---
 
 ### Exécution rapide en local
 Pour une exécution locale simple, suivez les étapes suivantes :
