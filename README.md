@@ -99,7 +99,7 @@ multilingual-rag-copilot/
 ├─ storage/              # persistance Chroma (non suivie)
 ├─ dags/                 # DAGs optionnels pour Airflow
 ├─ scripts/              # scripts utilitaires
-└─ pyproject.toml
+├─ pyproject.toml
 └─ requirements.txt      
 ```
 
