@@ -31,6 +31,32 @@ Le déploiement recommandé se fait avec **Streamlit Community Cloud** pour une 
 1. Configurez et sauvegardez votre `GROQ_API_KEY` en utilisant la gestion des secrets Streamlit.
 2. Déployez l'application sur Streamlit Cloud et inscrivez-vous à **Groq API** en fonction de votre volume requis.
 
+L'application est déployée publiquement sur Streamlit Cloud :
+
+👉 **https://multilingual-rag-copilot.streamlit.app/**
+
+## 📸 Aperçu de l’application
+
+### 🔐 Page de connexion
+Interface d’authentification sécurisée avant l’accès à l’application.
+
+![Login](assets/screenshots/_login.png)
+
+---
+
+### 📂 Chargement de documents
+Chargement et ingestion des documents dans le moteur RAG.
+
+![Document Upload](assets/screenshots/_document_loading.png)
+
+---
+
+### ❓ Question & Réponse intelligente
+L’utilisateur pose une question basée sur les documents chargés.  
+La réponse est générée automatiquement avec les sources citées.
+
+![Answer](assets/screenshots/_answer.png)
+
 ### Exécution rapide en local
 Pour une exécution locale simple, suivez les étapes suivantes :
 ```bash
