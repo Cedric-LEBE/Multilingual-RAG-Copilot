@@ -1,6 +1,6 @@
 # Multilingual-RAG-Copilot 🌍📚
 
-Bienvenue dans **Multilingual-RAG-Copilot**, une application de génération augmentée par récupération (**RAG - Retrieval-Augmented Generation**) multilingue conçue pour vous permettre de télécharger (ou de monter) des documents et de poser des questions basées sur les informations contenues dans ces documents, avec des **citations** précises.
+Bienvenue dans **Multilingual-RAG-Copilot**, une application Streamlit de génération augmentée par récupération (**RAG - Retrieval-Augmented Generation**) multilingue conçue pour vous permettre de télécharger (ou de monter) des documents et de poser des questions basées sur les informations contenues dans ces documents, avec des **citations** précises.
 
 ## Fonctionnalités 
 - **Téléchargement** de plusieurs types de documents : **PDF, TXT, MD, DOCX**
@@ -27,33 +27,30 @@ Bienvenue dans **Multilingual-RAG-Copilot**, une application de génération aug
 ## Déploiement
 
 ### Déployement avec URL publique
-Le déploiement recommandé se fait avec **Streamlit Community Cloud** pour une accessibilité simple via une URL publique. 
-1. Configurez et sauvegardez votre `GROQ_API_KEY` en utilisant la gestion des secrets Streamlit.
-2. Déployez l'application sur Streamlit Cloud et inscrivez-vous à **Groq API** en fonction de votre volume requis.
 
 L'application est déployée publiquement sur Streamlit Cloud :
 
-👉 **https://multilingual-rag-copilot.streamlit.app/**
+🔗 **https://multilingual-rag-copilot.streamlit.app/**
 
-## 📸 Aperçu de l’application
+## Aperçu de l’application
 
-### 🔐 Page de connexion
+### Page de connexion
 Interface d’authentification sécurisée avant l’accès à l’application.
 
 ![Login](assets/screenshots/_login.png)
 
 ---
 
-### 📂 Chargement de documents
+### Chargement de documents
 Chargement et ingestion des documents dans le moteur RAG.
 
 ![Document Upload](assets/screenshots/_document_loading.png)
 
 ---
 
-### ❓ Question & Réponse intelligente
-L’utilisateur pose une question basée sur les documents chargés.  
-La réponse est générée automatiquement avec les sources citées.
+### Question & Réponse intelligente
+L’utilisateur pose une question dans n’importe quelle langue à partir des documents chargés.
+La réponse est générée automatiquement dans la langue de l’utilisateur, avec les sources clairement citées.
 
 ![Answer](assets/screenshots/_answer.png)
 
