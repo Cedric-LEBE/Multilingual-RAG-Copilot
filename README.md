@@ -83,7 +83,7 @@ Pour **re-indexer périodiquement vos documents**, vous pouvez configurer **Airf
 
 ## Suivi des métriques (MLflow)
 L'intégration de MLflow est incluse pour :
-- Le suivi des processus d'indexation : nombre de documents et chunks, modèle d'embedding
+- Le suivi des  d'indexation : nombre de documents et chunks, modèle d'embedding
 - Le suivi des performances de l'application : latence et chunks récupérés
 
 Pour l'activer :
