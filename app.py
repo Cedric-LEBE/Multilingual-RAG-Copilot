@@ -107,13 +107,13 @@ if btn_col2.button("📁 Index corpus folder", use_container_width=True):
         rebuild_store(chunks, embedding_model=embedding_model)
         st.session_state.index_ready = True
         index_msg.success(f"Index ready: {len(chunks)} chunks.")
-        if enable_mlflow:
-            mlflow_log_index(
-                doc_count=len(docs),
-                chunk_count=len(chunks),
-                embedding_model=embedding_model,
-                elapsed_s=time.time() - t0,
-            )
+        #if enable_mlflow:
+        #    mlflow_log_index(
+        #        doc_count=len(docs),
+        #        chunk_count=len(chunks),
+        #        embedding_model=embedding_model,
+        #        elapsed_s=time.time() - t0,
+        #    )
 
 st.divider()
 st.subheader("Ask questions")
@@ -174,14 +174,14 @@ if question:
                 {"role": "assistant", "content": answer, "sources": sources}
             )
 
-            if enable_mlflow:
-                mlflow_log_chat(
-                    backend=backend,
-                    model=groq_model if backend == "groq" else ollama_model,
-                    top_k=top_k,
-                    latency_s=elapsed,
-                    retrieved=len(contexts),
-                )
+            #if enable_mlflow:
+            #    mlflow_log_chat(
+            #        backend=backend,
+            #        model=groq_model if backend == "groq" else ollama_model,
+            #        top_k=top_k,
+            #        latency_s=elapsed,
+            #        retrieved=len(contexts),
+            #    )
 
         except Exception as e:
             st.error(f"Error: {e}")
