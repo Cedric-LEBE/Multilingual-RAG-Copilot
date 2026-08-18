@@ -89,13 +89,13 @@ if btn_col1.button("📚 Build index from uploads", type="primary", use_containe
         rebuild_store(chunks, embedding_model=embedding_model)
         st.session_state.index_ready = True
         index_msg.success(f"Index ready: {len(chunks)} chunks.")
-        if enable_mlflow:
-            mlflow_log_index(
-                doc_count=len(docs),
-                chunk_count=len(chunks),
-                embedding_model=embedding_model,
-                elapsed_s=time.time() - t0,
-            )
+        #if enable_mlflow:
+        #    mlflow_log_index(
+        #        doc_count=len(docs),
+        #        chunk_count=len(chunks),
+        #        embedding_model=embedding_model,
+        #        elapsed_s=time.time() - t0,
+        #    )
 
 if btn_col2.button("📁 Index corpus folder", use_container_width=True):
     t0 = time.time()
