@@ -39,8 +39,8 @@ with st.sidebar:
     overlap = st.slider("Overlap (chars)", 0, 400, 150, 10)
     top_k = st.slider("Top-k chunks", 2, 12, 6, 1)
 
-    st.subheader("Observability (optional)")
-    enable_mlflow = st.checkbox("Enable MLflow logging", value=False)
+    #st.subheader("Observability (optional)")
+    #enable_mlflow = st.checkbox("Enable MLflow logging", value=False)
 
     st.divider()
     col1, col2 = st.columns(2)
