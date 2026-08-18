@@ -24,7 +24,7 @@ with st.sidebar:
 
     st.subheader("LLM backend")
     backend = st.selectbox("Backend", ["groq", "ollama"], index=0)
-    groq_model = st.text_input("Groq model", value="llama-3.1-8b-instant")
+    groq_model = st.text_input("Groq model", value="openai/gpt-oss-20b")
     ollama_base_url = st.text_input("Ollama base URL", value="http://localhost:11434")
     ollama_model = st.text_input("Ollama model", value="llama3.1")
 
